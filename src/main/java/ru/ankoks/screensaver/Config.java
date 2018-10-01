@@ -14,7 +14,7 @@ import java.util.Random;
 public class Config {
 
     @Bean
-    @Scope("prototype")
+    @Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public Color color() {
         Random random  = new Random();
 
