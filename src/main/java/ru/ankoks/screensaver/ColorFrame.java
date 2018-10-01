@@ -1,6 +1,5 @@
 package ru.ankoks.screensaver;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
@@ -12,10 +11,7 @@ import java.util.Random;
  * Date: 01.10.2018
  */
 @Component
-public class ColorFrame extends JFrame {
-
-    @Autowired
-    private Color color;
+public abstract class ColorFrame extends JFrame {
 
     public ColorFrame() {
         setSize(200, 200);
@@ -27,7 +23,9 @@ public class ColorFrame extends JFrame {
         Random random = new Random();
 
         setLocation(random.nextInt(1200), random.nextInt(700));
-        getContentPane().setBackground(color);
+        getContentPane().setBackground(getColor());
         repaint();
     }
+
+    protected abstract Color getColor();
 }
