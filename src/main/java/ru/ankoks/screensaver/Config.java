@@ -14,7 +14,7 @@ import java.util.Random;
 public class Config {
 
     @Bean
-    @Scope(value = "prototype")
+    @Scope(value = "periodical")
     public Color color() {
         Random random  = new Random();
 
@@ -37,7 +37,7 @@ public class Config {
 
         while (true) {
             context.getBean(ColorFrame.class).showOnRandomPlace();
-            Thread.sleep(200);
+            Thread.sleep(100);
         }
     }
 }
